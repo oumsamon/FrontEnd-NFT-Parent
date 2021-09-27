@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { Route, Link } from 'react-router-dom';
 import './App.css';
+import Landing from './Components/Landing';
+import Diaper from './Components/Diaper';
+import Bottle from './Components/Bottle';
+import BottleNipple from './Components/BottleNipple';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <Landing />
       </header>
+      <body>
+    
+    <Diaper />
+    <Bottle />
+    <BottleNipple />
+
+      </body>
     </div>
   );
 }
