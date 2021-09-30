@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import UpdateDiaper from './UpdateDiaper';
 
 
 function Diaper(props) {
@@ -24,10 +25,15 @@ function Diaper(props) {
 
 
             return (
+                diaper.map((data) => (
                 <div>
-            <h2>{diaper.name}</h2>
+                    <UpdateDiaper />
+                    
+            <h2>{data.name}</h2>
+            <h3>{data.type}</h3>
+            <img src={data.photo_url} />
                 </div>
-    );
+    )));
 
 }
 
