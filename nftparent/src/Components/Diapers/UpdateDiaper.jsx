@@ -1,39 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from 'axios';
 
+function UpdateDiaper(props) {
 
-class MyForm extends React.Component {
-    constructor() {
-      super();
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    handleSubmit(event) {
+    function handleSubmit(event) {
       event.preventDefault();
       const data = new FormData(event.target);
   console.log('Data in console', data)
       console.log(data.get("photo_url")); // reference by form input's `name` tag
-//   const obj = {
-//       name: data.get("name"),
-//       type: data.get("type"),
-//       photo_url: data.get("photo_url")
 
-//   }
       axios.post("https://nftparent-backend.herokuapp.com/diaper/", {
         name: data.get("name"),
         type: data.get("type"),
         photo_url: data.get("photo_url"),
-    
-        // method: 'POST',
-        // body:JSON.stringify(obj),
-        // headers:{ 'Authorization': 'Basic ' + Buffer.from("oumsamon" + ":" + "Quake319").toString('base64')}
+
       })
       .then(axios.get("https://nftparent-backend.herokuapp.com/diaper/"));
     }
   
-    render() {
+
       return (
-        <form onSubmit={this.handleSubmit}>
+        <div>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="diapername">Enter Name</label>
           <input id="diapername" name="name" type="text" />
   
@@ -45,9 +33,10 @@ class MyForm extends React.Component {
   
           <button>Send data!</button>
         </form>
+        </div>
       );
     }
-  }
+  
 
-  export default MyForm
+  export default UpdateDiaper;
 
