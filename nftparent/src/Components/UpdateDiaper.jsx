@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Form } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
+
 
 class MyForm extends React.Component {
     constructor() {
@@ -20,7 +19,7 @@ class MyForm extends React.Component {
 //       photo_url: data.get("photo_url")
 
 //   }
-      axios.post("http://localhost:8000/diaper/", {
+      axios.post("https://nftparent-backend.herokuapp.com/diaper/", {
         name: data.get("name"),
         type: data.get("type"),
         photo_url: data.get("photo_url"),
@@ -28,7 +27,8 @@ class MyForm extends React.Component {
         // method: 'POST',
         // body:JSON.stringify(obj),
         // headers:{ 'Authorization': 'Basic ' + Buffer.from("oumsamon" + ":" + "Quake319").toString('base64')}
-      });
+      })
+      .then(axios.get("https://nftparent-backend.herokuapp.com/diaper/"));
     }
   
     render() {

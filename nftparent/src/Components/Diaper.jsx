@@ -3,7 +3,7 @@ import UpdateDiaper from './UpdateDiaper';
 
 
 function Diaper(props) {
-    const urlDiaper = 'http://localhost:8000/diaper/?format=json'
+    const urlDiaper = 'https://nftparent-backend.herokuapp.com/diaper/'
     const [diaper, setDiaper ] = useState([])
 
 
@@ -31,7 +31,7 @@ function Diaper(props) {
                     
             <h2>{data.name}</h2>
             <h3>{data.type}</h3>
-            <img src={data.photo_url} />
+            <img src={data.photo_url} alt="diaper" />
                 </div>
     )));
 

@@ -7,21 +7,21 @@ function Bottle(props) {
     const [bottle, setBottle ] = useState([])
 
 
-        function getUrl() {
-            fetch(urlBottle)
-            .then(res => res.json())
-            .then(res => {
-                console.log('Success fetch', res)
-                setBottle(res)
-                console.log('this is bottle in useState', bottle)
+    //     function getUrl() {
+    //         fetch(urlBottle)
+    //         .then(res => res.json())
+    //         .then(res => {
+    //             console.log('Success fetch', res)
+    //             setBottle(res)
+    //             console.log('this is bottle in useState', bottle)
                 
-            })
-            .catch(console.error())
-        }
+    //         })
+    //         .catch(console.error())
+    //     }
 
-    useEffect(() => {
-        getUrl()
-    },[])
+    // useEffect(() => {
+    //     getUrl()
+    // },[])
 
     return (
         <div>

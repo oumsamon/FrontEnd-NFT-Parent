@@ -7,21 +7,21 @@ function BottleNipple(props) {
     const [bottleNipple, setBottleNipple ] = useState([])
 
 
-        function getUrl() {
-            fetch(urlBottleNipple)
-            .then(res => res.json())
-            .then(res => {
-                console.log('Success fetch', res)
-                setBottleNipple(res)
-                console.log('this is bottleNipple in useState', bottleNipple)
+    //     function getUrl() {
+    //         fetch(urlBottleNipple)
+    //         .then(res => res.json())
+    //         .then(res => {
+    //             console.log('Success fetch', res)
+    //             setBottleNipple(res)
+    //             console.log('this is bottleNipple in useState', bottleNipple)
                 
-            })
-            .catch(console.error())
-        }
+    //         })
+    //         .catch(console.error())
+    //     }
 
-    useEffect(() => {
-        getUrl()
-    },[])
+    // useEffect(() => {
+    //     getUrl()
+    // },[])
 
     return (
         <div>
