@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-function UpdateDiaper(props) {
+function AddDiaper(props) {
 
     function handleSubmit(event) {
       event.preventDefault();
@@ -38,5 +38,5 @@ function UpdateDiaper(props) {
     }
   
 
-  export default UpdateDiaper;
+  export default AddDiaper;
 
