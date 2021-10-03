@@ -1,11 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState} from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
+import { Link } from "react-router-dom";
 
 function DiaperDetail(props) {
     const [diaperDetail, setDiaperDetail] = useState("")
 
+
     const { id } = useParams();
+    const history = useHistory();
 
     const getDiaperDetail = async () => {
         const { data } = await axios.get(`https://nftparent-backend.herokuapp.com/diaperdetail/${id}`)
@@ -17,6 +20,12 @@ function DiaperDetail(props) {
         getDiaperDetail();
     }, [])
 
+    const deleteDiaper = async(id) => {
+        await axios.delete(`https://nftparent-backend.herokuapp.com/diaperdetail/${id}`)
+        .then(history.push('/diaper'))
+        
+    }
+
     return (
         <div>
             <h1>Diaper's Details</h1>
@@ -24,7 +33,10 @@ function DiaperDetail(props) {
                 <p>{diaperDetail.name}</p>
                 <p>{diaperDetail.type}</p>
                 <img src={diaperDetail.photo_url} alt="diaper" />
- 
+                <div>
+                <Link to={`/${diaperDetail.id}/update`} >Update Diaper's Info</Link>
+                <Link onClick={() => deleteDiaper(diaperDetail.id)} >Delete Diaper's Info</Link>
+                </div>
             </div>
             
         </div>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Link } from 'react-router-dom';
-import axios from 'axios';
 import AddDiaper from './AddDiaper';
 
 function Diaper(props) {
@@ -30,13 +29,18 @@ function Diaper(props) {
               <div>
                 <div className="App-Main">
                   <Route exact path="/diaper/updatediaper" component={AddDiaper} />
-                  <Link to="/diaper/updatediaper">Add Diaper</Link>
+                  <Link to="/diaper/add">Add Diaper</Link>
                 </div>
 
                 <div className="diaperDisplay">
                   <h2>{data.name}</h2>
                   <h3>{data.type}</h3>
+                  <a href={`http://localhost:3000/diaper/${data.id}`}>
                   <img src={data.photo_url} alt="diaper" />
+                  </a>
+                  <div>
+                {/* <Link to={`/diaper/${data.id}`} >Diaper's Info</Link> */}
+                </div>
                 </div>
               </div>
             ));
